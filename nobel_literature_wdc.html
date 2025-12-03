@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://connectors.tableau.com/libs/tableauwdc-2.3.latest.js"></script>
+    <script>
+
+        const myConnector = tableau.makeConnector();
+
+        myConnector.getSchema = function (schemaCallback) {
+            let cols = [
+                { id: "id", dataType: tableau.dataTypeEnum.string },
+                { id: "fullName", dataType: tableau.dataTypeEnum.string },
+                { id: "knownName", dataType: tableau.dataTypeEnum.string },
+                { id: "birthDate", dataType: tableau.dataTypeEnum.string },
+                { id: "birthCountry", dataType: tableau.dataTypeEnum.string },
+                { id: "birthCity", dataType: tableau.dataTypeEnum.string },
+                { id: "awardYear", dataType: tableau.dataTypeEnum.string },
+                { id: "category", dataType: tableau.dataTypeEnum.string },
+                { id: "motivation", dataType: tableau.dataTypeEnum.string }
+            ];
+
+            let tableSchema = {
+                id: "nobelLit",
+                alias: "Nobel Prize Literature Laureates",
+                columns: cols
+            };
+
+            schemaCallback([tableSchema]);
+        };
+
+        myConnector.getData = async function (table, doneCallback) {
+            const url = "https://api.nobelprize.org/2.1/laureates?limit=1000&nobelPrizeCategory=literature";
+
+            let response = await fetch(url);
+            let data = await response.json();
+            let rows = [];
+
+            data.laureates.forEach(l => {
+                if (!l.nobelPrizes) return;
+
+                l.nobelPrizes.forEach(p => {
+                    rows.push({
+                        id: l.id,
+                        fullName: l.fullName?.en || "",
+                        knownName: l.knownName?.en || "",
+                        birthDate: l.birth?.date || "",
+                        birthCountry: l.birth?.place?.country?.en || "",
+                        birthCity: l.birth?.place?.city?.en || "",
+                        awardYear: p.awardYear || "",
+                        category: p.category?.en || "",
+                        motivation: p.motivation?.en || ""
+                    });
+                });
+            });
+
+            table.appendRows(rows);
+            doneCallback();
+        };
+
+        tableau.registerConnector(myConnector);
+
+        function submit() {
+            tableau.connectionName = "Nobel Literature API";
+            tableau.submit();
+        }
+
+    </script>
+</head>
+
+<body>
+    <h2>Nobel Prize Literature — Web Data Connector</h2>
+    <button onclick="submit()">Carregar dados</button>
+</body>
+</html>
