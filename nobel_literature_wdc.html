@@ -11,6 +11,7 @@
                 { id: "id", dataType: tableau.dataTypeEnum.string },
                 { id: "fullName", dataType: tableau.dataTypeEnum.string },
                 { id: "knownName", dataType: tableau.dataTypeEnum.string },
+{ id: "gender", dataType: tableau.dataTypeEnum.string },                
                 { id: "birthDate", dataType: tableau.dataTypeEnum.string },
                 { id: "birthCountry", dataType: tableau.dataTypeEnum.string },
                 { id: "birthCity", dataType: tableau.dataTypeEnum.string },
@@ -43,6 +44,7 @@
                         id: l.id,
                         fullName: l.fullName?.en || "",
                         knownName: l.knownName?.en || "",
+                        gender: l.gender || "",
                         birthDate: l.birth?.date || "",
                         birthCountry: l.birth?.place?.country?.en || "",
                         birthCity: l.birth?.place?.city?.en || "",
@@ -72,3 +74,4 @@
     <button onclick="submit()">Carregar dados</button>
 </body>
 </html>
+
