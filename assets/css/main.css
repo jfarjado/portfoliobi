@@ -111,7 +111,7 @@ a {
   -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
-  border-bottom: dotted 1px;
+ /* border-bottom: dotted 1px;*/
   color: #f56a6a;
   text-decoration: none; }
   a:hover {
@@ -134,7 +134,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #3d4449;
   font-family: "Roboto Slab", serif;
   font-weight: 700;
-  line-height: 1.5;
+  line-height: 2.5;
   margin: 0 0 1em 0; }
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: inherit;
@@ -1010,7 +1010,7 @@ header.major > :last-child {
   header.acad > :last-child {
   border-bottom: solid 3px #f56a6a;
   display: inline-block;
-  margin: 0 0 2em 0;
+  margin: 0 0 1.5em 0;
   padding: 0 0.75em 0.5em 0; }
 
 .acad h3 {
@@ -1748,7 +1748,7 @@ button,
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 0 0 2em -6em;
+  margin: 0 0 5em -6em;
   width: calc(100% + 6em); }
   .posts article {
     -moz-flex-grow: 0;
@@ -1878,7 +1878,7 @@ button,
     margin: 0 auto;
     max-width: 110em; }
     #main > .inner > section {
-      padding: 6em 0 4em 0 ;
+      padding: 6em 0 2em 0 ;
       border-top: solid 2px rgba(210, 215, 217, 0.75); }
       #main > .inner > section:first-of-type {
         border-top: 0 !important; }
@@ -2207,7 +2207,8 @@ button,
 /* Footer */
 #footer .copyright {
   color: #9fa3a6;
-  font-size: 0.9em; }
+  font-size: 0.9em;
+text-align: right; }
   #footer .copyright a {
     color: inherit; }
 
