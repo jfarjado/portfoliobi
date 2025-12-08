@@ -257,11 +257,13 @@ nav.navbar.bootsnav .navbar-toggle i{color: #f56a6a;}
     content: '';
     display: block;
     clear: both;
+        border-radius: 20px;
 }
 .isotope .item {
     position:relative;
     overflow:hidden;
     margin-bottom: 30px;
+        border-radius: 20px;
 }
 /*.item img*/
 .isotope .item img{
@@ -272,6 +274,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #f56a6a;}
     -ms-transition: .5s;
     -o-transition: .5s;
     transition: .5s;
+        border-radius: 20px;
 }
 .isotope .item:hover  img{
     -webkit-transform:scale(1.5);
@@ -279,6 +282,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #f56a6a;}
     -ms-transform:scale(1.5);
     -o-transform:scale(1.5);
     transform:scale(1.5);
+        border-radius: 20px;
 }/*.item img*/
 
 /*.isotope-overlay*/
@@ -302,6 +306,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #f56a6a;}
     -ms-transition: .5s;
     -o-transition: .5s;
     transition: .5s;
+        border-radius: 20px;
 
 }
 .isotope-overlay a {
@@ -318,6 +323,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #f56a6a;}
     -o-transform:scale(1);
     transform:scale(1);
     top:0;
+        border-radius: 20px;
 }/*.isotope-overlay*/
 
 /*===============================
